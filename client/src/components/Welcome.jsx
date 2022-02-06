@@ -3,5 +3,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-
-rafce;
