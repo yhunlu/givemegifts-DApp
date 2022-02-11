@@ -48,8 +48,7 @@ const Welcome = () => {
             Send Crypto <br /> across the world
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Explore the crpyto world. Buy and sell cryptocurrencies easily on
-            Krypto.
+            Send gif card to anyone using ETH.
           </p>
           {!currentAccount && (
             <button

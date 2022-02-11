@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-
+import { FaOpenid } from 'react-icons/fa';
+import { TransactionContext } from '../context/TransactionContext';
 import logo from '../../images/logo.png';
 
 const NavbarItem = ({ title, classProps }) => {
@@ -11,6 +12,7 @@ const NavbarItem = ({ title, classProps }) => {
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { currentAccount } = useContext(TransactionContext);
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
@@ -21,9 +23,17 @@ const Navbar = () => {
         {['Market', 'Exchange', 'Tutorials', 'Wallets'].map((item, index) => (
           <NavbarItem key={item + index} title={item} />
         ))}
-        <li className="bg-mainColor py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-hovermainColor text-white font-bold">
-          Login
-        </li>
+        <div
+          className="h-full w-full justify-center items-center py-2 px-7 mx-4 cursor-pointer hover:bg-black"
+        >
+          {currentAccount ? (
+            <FaOpenid />
+          ) : (
+            <li className="bg-mainColor py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-hovermainColor text-white font-bold">
+              Login
+            </li>
+          )}
+        </div>
       </ul>
       <div className="flex relative">
         {toggleMenu ? (

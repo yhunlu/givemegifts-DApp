@@ -56,7 +56,8 @@ contract Transactions {
     function getAllTransactions()
         public
         view
-        returns (TransferStruct[] memory) {
+        returns (TransferStruct[] memory)
+    {
         return transactions;
     }
 
